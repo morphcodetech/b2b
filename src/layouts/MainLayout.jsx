@@ -1,10 +1,16 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar"; // FIXED: Changed from ../components/Navbar to ./Navbar
+
 const MainLayout = () => {
-return (
-<div>
-<nav className="p-4 bg-gray-800 text-white">Navbar</nav>
-<Outlet />
-</div>
-);
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Outlet /> 
+      </main>
+     
+    </div>
+  );
 };
+
 export default MainLayout;
