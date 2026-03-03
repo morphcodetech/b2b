@@ -1,6 +1,6 @@
 import React from "react";
-import HomeIcon from "./Homeicon";
-import ChevronIcon from "./Chevronicon";
+import HomeIcon from "./HomeIcon";
+import ChevronIcon from "./ChevronIcon";
 
 const Breadcrumbs = ({ currentPage }) => {
   return (
