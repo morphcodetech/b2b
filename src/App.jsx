@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
 
-      {/* Default route → show Contact first */}
+      {/* Default route   Contact first */}
       <Route path="/" element={<Navigate to="/contact" />} />
 
       {/* Pages WITH Navbar */}
