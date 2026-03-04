@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../components/UserDashboardHeading/Heading";
 import ProfileCard from "../components/UserDashboardProfileCard/ProfileCard";
-import DashboardMain from "../components/DashboardMain/DashboardMain";
+import DashboardMain from "../components/DashboardMain/Dashboard/DashboardMain";
 
 const Dashboard = () => {
   return (
