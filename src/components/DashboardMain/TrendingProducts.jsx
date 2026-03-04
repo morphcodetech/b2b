@@ -1,26 +1,30 @@
 import React from "react";
+import product1 from "../../assets/prod1.png";
+import product2 from "../../assets/prod2.png";
+import product3 from "../../assets/prod3.png";
+import product4 from "../../assets/prod4.png";
 
 const products = [
   {
-    image: "https://placehold.co/60x60/fde8d8/ff6b35?text=🍪",
+    image: product1,
     name: "Fantasy Crunchy C",
     price: "$25.69",
     sales: 152,
   },
   {
-    image: "https://placehold.co/60x60/e8f0e8/4a7c4a?text=🥜",
+    image: product2,
     name: "Peanut Butter Bite",
     price: "$35.36",
     sales: 34,
   },
   {
-    image: "https://placehold.co/60x60/fff3e0/ff8f00?text=🌶",
+    image: product3,
     name: "Yumitos Chilli Sprir",
     price: "$78.55",
     sales: 78,
   },
   {
-    image: "https://placehold.co/60x60/fff8e1/ffa000?text=🍟",
+    image: product4,
     name: "Healthy Long Life T",
     price: "$32.98",
     sales: 135,
