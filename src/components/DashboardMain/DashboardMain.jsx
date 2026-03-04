@@ -75,7 +75,7 @@ const DashboardMain = () => {
           Hello,{" "}
           <span className="font-semibold text-gray-800">Vicki E. Pope</span>
         </p>
-        <p className="text-sm text-gray-500 mt-1 max-w-2xl">
+        <p className="text-sm text-gray-500 mt-1">
           From your My Account Dashboard you have the ability to view a snapshot
           of your recent account activity and update your account information.
           Select a link below to view or edit information.
