@@ -83,20 +83,20 @@ const DashboardMain = () => {
       </div>
 
       {/* Stats Row */}
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <StatsCard icon={<ProductIcon />} label="Total Products" value="25" />
         <StatsCard icon={<SalesIcon />} label="Total Sales" value="12550" />
         <StatsCard icon={<OrderIcon />} label="Order Pending" value="36" />
       </div>
 
       {/* Charts Row */}
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <RevenueChart />
         <SalesChart />
       </div>
 
       {/* Tables Row */}
-      <div className="flex gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <TrendingProducts />
         <RecentOrders />
       </div>

@@ -10,9 +10,9 @@ const data = [
 
 const SalesChart = () => {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6 w-80 shrink-0">
+    <div className="bg-white rounded-xl border border-gray-200 p-6 w-full sm:w-80 shrink-0">
       <h3 className="text-base font-bold text-gray-800 mb-4">Overall Sales</h3>
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col md:flex-row items-center gap-4">
         <ResponsiveContainer width={160} height={160}>
           <PieChart>
             <Pie
