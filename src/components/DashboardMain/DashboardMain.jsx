@@ -1,6 +1,6 @@
 import React from "react";
 import StatsCard from "./StatsCard";
-import RevenueChart from "./RevenueChart";
+import RevenueChart from "./RevenueChart/RevenueChart";
 import SalesChart from "./SalesChart";
 import TrendingProducts from "./TrendingProducts/TrendingProducts";
 import RecentOrders from "./RecentOrders/RecentOrders";
