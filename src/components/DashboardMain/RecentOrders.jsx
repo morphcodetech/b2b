@@ -27,34 +27,38 @@ const RecentOrders = () => {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-6 flex-1">
       <h3 className="text-lg font-bold text-gray-800 mb-4">Recent Order</h3>
-      <table className="w-full">
-        <thead>
-          <tr className="border-b-2 border-gray-800">
-            <th className="text-left text-sm font-semibold text-gray-700 pb-3 pr-4">
-              Order ID
-            </th>
-            <th className="text-left text-sm font-semibold text-gray-700 pb-3 pr-4">
-              Product Name
-            </th>
-            <th className="text-left text-sm font-semibold text-gray-700 pb-3">
-              Status
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((o, i) => (
-            <tr key={i} className="border-b border-gray-100 last:border-0">
-              <td className="py-3 pr-4 text-sm font-bold text-gray-800">
-                {o.id}
-              </td>
-              <td className="py-3 pr-4 text-sm text-gray-500">{o.product}</td>
-              <td className="py-3">
-                <StatusBadge status={o.status} />
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b-2 border-gray-800">
+              <th className="text-left text-sm font-semibold text-gray-700 pb-3 pr-4">
+                Order ID
+              </th>
+              <th className="text-left text-sm font-semibold text-gray-700 pb-3 pr-4">
+                Product Name
+              </th>
+              <th className="text-left text-sm font-semibold text-gray-700 pb-3">
+                Status
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orders.map((o, i) => (
+              <tr key={i} className="border-b border-gray-100 last:border-0">
+                <td className="py-3 pr-4 text-sm font-bold text-gray-800">
+                  {o.id}
+                </td>
+                <td className="py-3 pr-4 text-sm text-gray-500">
+                  {o.product}
+                </td>
+                <td className="py-3">
+                  <StatusBadge status={o.status} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
