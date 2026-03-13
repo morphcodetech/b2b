@@ -1,80 +1,52 @@
-import { useState } from "react";
-import { FaChevronDown, FaThLarge, FaList } from "react-icons/fa";
+import { FaTh, FaList } from "react-icons/fa";
 
-const sortOptions = [
-  "Popularity",
-  "Low - High Price",
-  "High - Low Price",
-  "Average Rating",
-  "A - Z Order",
-  "Z - A Order",
-  "% Off - High To Low",
-];
-
-const SortBar = ({ viewMode, setViewMode }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("Most Popular");
+export default function SortBar({view,setView}) {
 
   return (
-    <div className="flex justify-between items-center mb-8">
+    <div className="flex items-center justify-between mb-6">
 
-      {/* LEFT SIDE - Sort */}
-      <div className="relative">
-        <span className="mr-2 text-gray-600">Sort By :</span>
+      <div className="flex items-center gap-3">
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="bg-gray-100 px-4 py-2 rounded-md flex items-center gap-2 hover:bg-gray-200 transition"
-        >
-          {selected}
-          <FaChevronDown className="text-sm" />
-        </button>
+        <span className="text-gray-600">Sort By :</span>
 
-        {/* Dropdown */}
-        {isOpen && (
-          <div className="absolute mt-2 w-56 bg-white shadow-lg rounded-md border border-gray-200 z-50">
-            {sortOptions.map((option) => (
-              <div
-                key={option}
-                onClick={() => {
-                  setSelected(option);
-                  setIsOpen(false);
-                }}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
-              >
-                {option}
-              </div>
-            ))}
-          </div>
-        )}
+        <select className="border rounded-md px-3 py-2 text-sm">
+
+          <option>Most Popular</option>
+          <option>Popularity</option>
+          <option>Low - High Price</option>
+          <option>High - Low Price</option>
+          <option>Average Rating</option>
+
+        </select>
+
       </div>
 
-      {/* RIGHT SIDE - View Toggle */}
-      <div className="flex gap-3">
+      <div className="flex gap-2">
+
         <button
-          onClick={() => setViewMode("grid")}
-          className={`p-3 rounded-md ${
-            viewMode === "grid"
-              ? "bg-primary text-white"
-              : "bg-gray-100 text-gray-600"
+          onClick={()=>setView("grid")}
+          className={`p-2 rounded ${
+            view==="grid"
+            ? "bg-primary text-white"
+            : "bg-gray-100"
           }`}
         >
-          <FaThLarge />
+          <FaTh/>
         </button>
 
         <button
-          onClick={() => setViewMode("list")}
-          className={`p-3 rounded-md ${
-            viewMode === "list"
-              ? "bg-primary text-white"
-              : "bg-gray-100 text-gray-600"
+          onClick={()=>setView("list")}
+          className={`p-2 rounded ${
+            view==="list"
+            ? "bg-primary text-white"
+            : "bg-gray-100"
           }`}
         >
-          <FaList />
+          <FaList/>
         </button>
+
       </div>
+
     </div>
   );
-};
-
-export default SortBar;
+}

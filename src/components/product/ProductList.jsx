@@ -1,38 +1,65 @@
-const ProductList = ({ products }) => {
-  return (
-    <div className="space-y-6">
-      {products.map((product) => (
-        <div
-          key={product.id}
-          className="flex gap-6 bg-gray-50 rounded-xl p-6"
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-40 h-40 object-contain"
-          />
+import products from "../../data/products";
 
-          <div className="flex-1">
-            <h3 className="font-semibold text-xl mb-2">
-              {product.name}
-            </h3>
+export default function ProductList() {
 
-            <p className="text-gray-500 mb-3">
-              Sample product description exactly like FastKart layout.
-            </p>
+return(
 
-            <p className="text-primary font-bold text-xl">
-              ${product.price}
-            </p>
+<div className="space-y-6">
 
-            <button className="mt-4 bg-gray-200 rounded-full px-10 py-3 hover:bg-primary hover:text-white transition">
-              Add
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
+{products.map((product)=>(
 
-export default ProductList;
+<div key={product.id} className="bg-white shadow rounded-xl p-4 flex gap-6">
+
+{/* Product Image */}
+<img
+src={product.image}
+alt={product.name}
+className="w-32 h-32 object-contain"
+/>
+
+{/* Product Info */}
+<div>
+
+<h3 className="font-semibold text-lg">
+{product.name}
+</h3>
+
+<p className="text-gray-500 text-sm mt-2">
+Cheesy feta cheese mascarpone cheese and wine hard cheese.
+</p>
+
+<div className="text-yellow-500 mt-2">
+★★★★☆ ({product.rating})
+</div>
+
+<p className="text-gray-500 text-sm mt-1">
+{product.size}
+</p>
+
+<div className="flex gap-2 mt-2">
+
+<span className="text-green-600 font-semibold">
+${product.price}
+</span>
+
+<span className="line-through text-gray-400">
+${product.oldPrice}
+</span>
+
+</div>
+
+<button className="mt-3 bg-gray-100 px-6 py-2 rounded-full">
+Add +
+</button>
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+)
+
+}

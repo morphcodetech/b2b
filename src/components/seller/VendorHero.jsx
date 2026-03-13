@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import heroImage from "../../assets/vendor-hero.jpg";
+import heroImage from "../../assets/breadcrumb.png";
 
 const VendorHero = () => {
   return (
