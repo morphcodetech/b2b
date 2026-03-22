@@ -26,8 +26,8 @@ const items = [
 export default function FeaturesStrip() {
   return (
     <div>
-      <div className="border-t border-slate-200 px-1 pt-8 sm:pt-10">
-        <div className="grid gap-8 sm:grid-cols-2 lg:gap-10 xl:grid-cols-4">
+      <div className="border-t border-slate-200 pt-8 sm:pt-10">
+        <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4 xl:gap-10">
           {items.map((item, index) => (
             <div
               key={item.id}
@@ -36,7 +36,7 @@ export default function FeaturesStrip() {
               } xl:pr-8`}
             >
               <div className="shrink-0 pt-1 text-slate-500">{item.icon}</div>
-              <p className="text-xl font-medium leading-8 text-slate-900">
+              <p className="text-lg font-medium leading-8 text-slate-900 sm:text-xl">
                 {item.title}
               </p>
             </div>
