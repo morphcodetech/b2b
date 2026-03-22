@@ -23,7 +23,7 @@ export default function MiniNav() {
             Seller Grid 2
           </NavLink>
 
-          {/* Add more links later if your team adds pages */}
+          {/* Add more links later if the  team adds pages */}
           <NavLink
             to="/"
             className={({ isActive }) =>

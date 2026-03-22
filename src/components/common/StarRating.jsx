@@ -6,7 +6,7 @@ export default function StarRating({ value = 4.5, countText = "(26)" }) {
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1" aria-label={`Rating ${value} out of 5`}>
         {Array.from({ length: 5 }).map((_, i) => {
           const active = i < full || (i === full && half);
 

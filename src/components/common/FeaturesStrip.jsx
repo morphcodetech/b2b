@@ -1,41 +1,35 @@
-import { FiShoppingBag, FiTruck, FiPercent, FiThumbsUp } from "react-icons/fi";
+import {
+  FiPercent,
+  FiShoppingBag,
+  FiThumbsUp,
+  FiTruck,
+} from "react-icons/fi";
+import { featureItems } from "../../data/uiContent";
 
-const items = [
-  {
-    id: 1,
-    icon: <FiShoppingBag size={28} />,
-    title: "Every Fresh Products",
-  },
-  {
-    id: 2,
-    icon: <FiTruck size={28} />,
-    title: "Free Delivery For Order Over $50",
-  },
-  {
-    id: 3,
-    icon: <FiPercent size={28} />,
-    title: "Daily Mega Discounts",
-  },
-  {
-    id: 4,
-    icon: <FiThumbsUp size={28} />,
-    title: "Best Price On The Market",
-  },
-];
+const iconMap = {
+  1: <FiShoppingBag size={28} />,
+  2: <FiTruck size={28} />,
+  3: <FiPercent size={28} />,
+  4: <FiThumbsUp size={28} />,
+};
 
 export default function FeaturesStrip() {
   return (
-    <div>
+    <section aria-label="Store features">
       <div className="border-t border-slate-200 pt-8 sm:pt-10">
         <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4 xl:gap-10">
-          {items.map((item, index) => (
+          {featureItems.map((item, index) => (
             <div
               key={item.id}
               className={`flex items-start gap-4 ${
-                index !== items.length - 1 ? "xl:border-r xl:border-slate-200" : ""
+                index !== featureItems.length - 1
+                  ? "xl:border-r xl:border-slate-200"
+                  : ""
               } xl:pr-8`}
             >
-              <div className="shrink-0 pt-1 text-slate-500">{item.icon}</div>
+              <div className="shrink-0 pt-1 text-slate-500">
+                {iconMap[item.id]}
+              </div>
               <p className="text-lg font-medium leading-8 text-slate-900 sm:text-xl">
                 {item.title}
               </p>
@@ -43,6 +37,6 @@ export default function FeaturesStrip() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,9 +1,9 @@
-import { FiMapPin, FiPhone, FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiMapPin, FiPhone } from "react-icons/fi";
 import StarRating from "../common/StarRating";
 
 export default function SellerCard({ seller }) {
   return (
-    <article className="rounded-2xl bg-white p-5 shadow-card transition hover:-translate-y-1 hover:shadow-xl sm:p-6 lg:p-7">
+    <article className="flex h-full flex-col rounded-2xl bg-white p-5 shadow-card transition hover:-translate-y-1 hover:shadow-xl sm:p-6 lg:p-7">
       <div className="flex items-start gap-4">
         <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white sm:h-16 sm:w-16">
           <img
@@ -49,25 +49,26 @@ export default function SellerCard({ seller }) {
         </div>
       </div>
 
-      <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-7 flex flex-col gap-4 sm:mt-auto sm:flex-row sm:items-center sm:justify-between">
         <button
           type="button"
+          aria-label={`Visit ${seller.name} store`}
           className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#FA6C48] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#e85f3d] sm:w-auto"
         >
           Visit Store <FiArrowRight />
         </button>
 
-        <div className="flex items-center justify-between sm:justify-end">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end">
           <div className="flex -space-x-2">
             {seller.thumbs?.map((item, i) => (
               <div
                 key={i}
                 className="h-9 w-9 overflow-hidden rounded-full border-2 border-white bg-white shadow-sm sm:h-10 sm:w-10"
-                title="product"
+                title={`product-${i + 1}`}
               >
                 <img
                   src={item}
-                  alt={`product-${i + 1}`}
+                  alt={`${seller.name} product ${i + 1}`}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
@@ -75,7 +76,7 @@ export default function SellerCard({ seller }) {
             ))}
           </div>
 
-          <div className="ml-3 flex h-10 min-w-[50px] items-center justify-center rounded-full border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm">
+          <div className="flex h-10 min-w-[50px] items-center justify-center rounded-full border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm">
             +63
           </div>
         </div>

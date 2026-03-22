@@ -1,9 +1,9 @@
 import BodyTopHeader from "../../components/common/BodyTopHeader";
 import BreadcrumbHeader from "../../components/common/BreadcrumbHeader";
 import FeaturesStrip from "../../components/common/FeaturesStrip";
-import SellerCard from "../../components/seller/SellerCard";
 import Pagination from "../../components/common/Pagination";
 import NewsletterBanner from "../../components/seller/NewsletterBanner";
+import SellerCard from "../../components/seller/SellerCard";
 import { sellers } from "../../data/sellers";
 
 export default function SellerGridTwoPage() {
@@ -13,7 +13,7 @@ export default function SellerGridTwoPage() {
       <BreadcrumbHeader title="Seller Grid" />
 
       <main className="mx-auto max-w-7xl px-4 pb-16 pt-6 sm:pb-20 sm:pt-8 lg:pt-10">
-        <section>
+        <section aria-label="Seller list">
           <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
             {sellers.map((seller) => (
               <SellerCard key={seller.id} seller={seller} />
