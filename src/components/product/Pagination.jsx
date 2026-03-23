@@ -4,7 +4,6 @@ const Pagination = () => {
   return (
     <div className="flex justify-center items-center gap-4 mt-12">
 
-      {/* Previous */}
       <button className="text-gray-500 text-lg hover:text-gray-700">
         <FaAngleLeft />
       </button>
