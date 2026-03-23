@@ -4,11 +4,22 @@ import Heading from "../components/UserDashboardHeading/Heading";
 import ProfileCard from "../components/UserDashboardProfileCard/ProfileCard";
 import DashboardMain from "../components/DashboardMain/Dashboard/DashboardMain";
 import Profile from "../components/Profile/Profile";
+import Products from "../components/Products/Products";
 
 const Dashboard = () => {
   const { pathname } = useLocation();
   const showProfileContent =
     pathname === "/dashboard/profile" || pathname === "/profile";
+  const showProductsContent =
+    pathname === "/dashboard/products" || pathname === "/products";
+
+  const mainContent = showProfileContent ? (
+    <Profile />
+  ) : showProductsContent ? (
+    <Products />
+  ) : (
+    <DashboardMain />
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -24,7 +35,7 @@ const Dashboard = () => {
 
         {/* right content */}
         <main className="flex-1 bg-[#F5F5F5] rounded-xl p-6 mt-6 md:mt-0">
-          {showProfileContent ? <Profile /> : <DashboardMain />}
+          {mainContent}
         </main>
       </div>
     </div>

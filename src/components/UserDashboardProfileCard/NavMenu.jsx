@@ -20,6 +20,7 @@ const NavMenu = () => {
     {
       label: "Products",
       icon: <ShoppingBag size={18} />,
+      to: "/dashboard/products",
     },
     { label: "Order", icon: <ClipboardList size={18} /> },
     { label: "Profile", icon: <User size={18} />, to: "/dashboard/profile" },

@@ -12,7 +12,9 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/profile" element={<Dashboard />} />
+        <Route path="/dashboard/products" element={<Dashboard />} />
         <Route path="/profile" element={<Dashboard />} />
+        <Route path="/products" element={<Dashboard />} />
       </Routes>
     </Router>
   );
