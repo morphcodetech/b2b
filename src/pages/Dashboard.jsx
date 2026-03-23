@@ -1,9 +1,15 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Heading from "../components/UserDashboardHeading/Heading";
 import ProfileCard from "../components/UserDashboardProfileCard/ProfileCard";
 import DashboardMain from "../components/DashboardMain/Dashboard/DashboardMain";
+import Profile from "../components/Profile/Profile";
 
 const Dashboard = () => {
+  const { pathname } = useLocation();
+  const showProfileContent =
+    pathname === "/dashboard/profile" || pathname === "/profile";
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* top heading */}
@@ -18,7 +24,7 @@ const Dashboard = () => {
 
         {/* right content */}
         <main className="flex-1 bg-[#F5F5F5] rounded-xl p-6 mt-6 md:mt-0">
-          <DashboardMain />
+          {showProfileContent ? <Profile /> : <DashboardMain />}
         </main>
       </div>
     </div>

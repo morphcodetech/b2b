@@ -9,13 +9,21 @@ import {
   LogOut,
 } from "lucide-react";
 
-const NavMenu = ({ activeItem, onSelect }) => {
+const NavMenu = () => {
   const items = [
-    { label: "DashBoard", icon: <LayoutDashboard size={18} /> },
-    { label: "Products", icon: <ShoppingBag size={18} /> },
+    {
+      label: "DashBoard",
+      icon: <LayoutDashboard size={18} />,
+      to: "/dashboard",
+      end: true,
+    },
+    {
+      label: "Products",
+      icon: <ShoppingBag size={18} />,
+    },
     { label: "Order", icon: <ClipboardList size={18} /> },
-    { label: "Profile", icon: <User size={18} /> },
-    { label: "Setting", icon: <Settings size={18} /> },
+    { label: "Profile", icon: <User size={18} />, to: "/dashboard/profile" },
+    { label: "Settings", icon: <Settings size={18} /> },
   ];
 
   return (
@@ -25,8 +33,8 @@ const NavMenu = ({ activeItem, onSelect }) => {
           key={item.label}
           icon={item.icon}
           label={item.label}
-          active={activeItem === item.label}
-          onClick={() => onSelect(item.label)}
+          to={item.to}
+          end={item.end}
         />
       ))}
       <div className="my-2 mx-5 border-t border-gray-100" />

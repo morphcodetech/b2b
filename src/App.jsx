@@ -9,11 +9,10 @@ function App() {
       <Navbar />
 
       <Routes>
-        
         <Route path="/" element={<Dashboard />} />
-        <Route path="/dashboard" element={<Dashboard />} />{" "}
-        {/* Same like this make a route path for your page */}
-
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/profile" element={<Dashboard />} />
+        <Route path="/profile" element={<Dashboard />} />
       </Routes>
     </Router>
   );
