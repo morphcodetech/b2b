@@ -22,9 +22,9 @@ const NavMenu = () => {
       icon: <ShoppingBag size={18} />,
       to: "/dashboard/products",
     },
-    { label: "Order", icon: <ClipboardList size={18} /> },
+    { label: "Order", icon: <ClipboardList size={18} />, to: "/dashboard/order", end: true },
     { label: "Profile", icon: <User size={18} />, to: "/dashboard/profile" },
-    { label: "Settings", icon: <Settings size={18} /> },
+    { label: "Settings", icon: <Settings size={18} />, to: "/dashboard/settings", end: true },
   ];
 
   return (

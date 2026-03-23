@@ -5,6 +5,8 @@ import ProfileCard from "../components/UserDashboardProfileCard/ProfileCard";
 import DashboardMain from "../components/DashboardMain/Dashboard/DashboardMain";
 import Profile from "../components/Profile/Profile";
 import Products from "../components/Products/Products";
+import Order from "../components/Order/Order";
+import Setting from "../components/SettingsPage/Setting";
 
 const Dashboard = () => {
   const { pathname } = useLocation();
@@ -13,10 +15,20 @@ const Dashboard = () => {
   const showProductsContent =
     pathname === "/dashboard/products" || pathname === "/products";
 
+  const showOrderContent =
+    pathname === "/dashboard/order" || pathname === "/order";
+
+  const showSettingsContent =
+    pathname === "/dashboard/settings" || pathname === "/settings";
+
   const mainContent = showProfileContent ? (
     <Profile />
   ) : showProductsContent ? (
     <Products />
+  ) : showOrderContent ? (
+    <Order />
+  ) : showSettingsContent ? (
+    <Setting />
   ) : (
     <DashboardMain />
   );
