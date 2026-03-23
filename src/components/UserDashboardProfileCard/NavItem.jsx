@@ -13,7 +13,7 @@ const NavItem = ({ icon, label, to, end = false, danger = false, onClick }) => {
         className={({ isActive }) =>
           `${baseClassName} ${
             isActive
-              ? "border-[#0fa488] bg-teal-50 text-[#0fa488]"
+              ? "border-[#FA6C48] bg-[#FA6C48]/15 text-[#FA6C48]"
               : "border-transparent text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           }`
         }

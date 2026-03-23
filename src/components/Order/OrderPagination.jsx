@@ -8,7 +8,7 @@ const OrderPagination = ({ totalPages = 3 }) => {
       <button
         onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
         disabled={currentPage === 1}
-        className="w-8 h-8 flex items-center justify-center rounded text-gray-500 hover:text-[#0fa488] disabled:opacity-30 transition-colors"
+        className="w-8 h-8 flex items-center justify-center rounded text-gray-500 hover:text-[#FA6C48] disabled:opacity-30 transition-colors"
       >
         «
       </button>
@@ -19,8 +19,8 @@ const OrderPagination = ({ totalPages = 3 }) => {
           onClick={() => setCurrentPage(page)}
           className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${
             currentPage === page
-              ? "bg-[#0fa488] text-white"
-              : "text-gray-600 hover:text-[#0fa488]"
+              ? "bg-[#FA6C48] text-white"
+              : "text-gray-600 hover:text-[#FA6C48]"
           }`}
         >
           {page}
@@ -30,7 +30,7 @@ const OrderPagination = ({ totalPages = 3 }) => {
       <button
         onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
         disabled={currentPage === totalPages}
-        className="w-8 h-8 flex items-center justify-center rounded text-gray-500 hover:text-[#0fa488] disabled:opacity-30 transition-colors"
+        className="w-8 h-8 flex items-center justify-center rounded text-gray-500 hover:text-[#FA6C48] disabled:opacity-30 transition-colors"
       >
         »
       </button>

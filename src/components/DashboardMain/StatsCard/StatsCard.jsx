@@ -7,13 +7,13 @@ const StatsCardShell = ({ children }) => (
 );
 
 const StatsCardFaintIcon = ({ icon }) => (
-  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-10 text-[#0fa488]">
+  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-10 text-[#FA6C48]">
     {icon}
   </div>
 );
 
 const StatsCardIcon = ({ icon }) => (
-  <div className="text-[#0fa488] shrink-0">{icon}</div>
+  <div className="text-[#FA6C48] shrink-0">{icon}</div>
 );
 
 const StatsCardText = ({ label, value }) => (

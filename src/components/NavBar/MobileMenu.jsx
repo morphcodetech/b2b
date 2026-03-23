@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import teamMembers from "./TeamMembers";
 
 const MobileMenu = ({ onClose }) => (
-  <div className="sm:hidden px-4 py-3 flex flex-col gap-1 bg-[#0c8f76] border-t border-white/15">
+  <div className="sm:hidden px-4 py-3 flex flex-col gap-1 bg-[#FA6C48] border-t border-white/15">
     {teamMembers.map((member) => (
       <NavLink
         key={member.path}

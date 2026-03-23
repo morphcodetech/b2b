@@ -22,7 +22,7 @@ const NotificationsSection = () => {
         selected={selected}
         onChange={setSelected}
       />
-      <button className="mt-6 px-6 py-2.5 bg-[#0fa488] hover:bg-[#0c8f76] text-white text-sm font-semibold rounded-lg transition-colors">
+      <button className="mt-6 px-6 py-2.5 bg-[#FA6C48] hover:bg-[#FA6C48]/90 text-white text-sm font-semibold rounded-lg transition-colors">
         Save Changes
       </button>
     </div>

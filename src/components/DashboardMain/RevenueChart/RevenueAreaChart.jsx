@@ -44,7 +44,7 @@ const RevenueAreaChart = () => (
       <Area
         type="monotone"
         dataKey="value"
-        stroke="#0fa488"
+        stroke="#FA6C48"
         strokeWidth={2}
         fill="url(#revenueGrad)"
         dot={false}

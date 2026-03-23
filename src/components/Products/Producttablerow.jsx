@@ -10,13 +10,13 @@ const ProductTableRow = ({ image, name, price, stock, sales }) => (
       />
     </td>
     <td className="py-4 pr-4 text-sm text-gray-600">{name}</td>
-    <td className="py-4 pr-4 text-sm font-semibold text-[#0fa488]">{price}</td>
+    <td className="py-4 pr-4 text-sm font-semibold text-[#FA6C48]">{price}</td>
     <td className="py-4 pr-4 text-sm text-gray-600">{stock}</td>
     <td className="py-4 pr-4 text-sm text-gray-600">{sales}</td>
     <td className="py-4">
       <div className="flex items-center gap-3">
         {/* Edit */}
-        <button className="text-[#0fa488] hover:text-[#0c8f76] transition-colors">
+        <button className="text-[#FA6C48] hover:text-[#FA6C48]/90 transition-colors">
           <svg
             width="18"
             height="18"

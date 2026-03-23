@@ -10,7 +10,7 @@ const SettingRadioGroup = ({ name, options, selected, onChange }) => (
           value={option}
           checked={selected === option}
           onChange={() => onChange(option)}
-          className="w-4 h-4 accent-[#0fa488] cursor-pointer"
+          className="w-4 h-4 accent-[#FA6C48] cursor-pointer"
         />
         <span className="text-sm text-gray-600">{option}</span>
       </label>
