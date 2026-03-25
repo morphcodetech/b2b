@@ -1,4 +1,7 @@
 import React from "react";
+import CategoryImage from "./CategoryImage";
+import CategoryName from "./CategoryName";
+import CategoryCount from "./CategoryCount";
 
 const CategoryCard = ({ category, isActive, onClick }) => {
   return (
@@ -6,38 +9,9 @@ const CategoryCard = ({ category, isActive, onClick }) => {
       className="flex flex-col items-center gap-2 cursor-pointer group min-w-33 px-3 py-3"
       onClick={() => onClick && onClick(category)}
     >
-      {/* Circle with food image */}
-      <div
-        className={`w-27 h-27 rounded-full flex items-center justify-center overflow-hidden transition-all duration-200
-          ${
-            isActive
-              ? "ring-2 ring-[#FA6C48] ring-offset-2"
-              : "group-hover:ring-2 group-hover:ring-[#FA6C48] group-hover:ring-offset-2"
-          }`}
-        style={{ backgroundColor: category.bg }}
-      >
-        <img
-          src={category.image}
-          alt={category.name}
-          className="w-21.5 h-21.5 object-contain drop-shadow-sm"
-          onError={(e) => {
-            e.target.src = "https://via.placeholder.com/90";
-          }}
-        />
-      </div>
-
-      {/* Category Name */}
-      <p
-        className={`text-[12px] font-semibold text-center leading-tight transition-colors duration-200
-          ${isActive ? "text-[#FA6C48]" : "text-gray-800 group-hover:text-[#FA6C48]"}`}
-      >
-        {category.name}
-      </p>
-
-      {/* Product Count */}
-      <span className="text-[10px] text-gray-400 text-center -mt-1">
-        {category.count}
-      </span>
+      <CategoryImage category={category} isActive={isActive} />
+      <CategoryName name={category.name} isActive={isActive} />
+      <CategoryCount count={category.count} />
     </div>
   );
 };
