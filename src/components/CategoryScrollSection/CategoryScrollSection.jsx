@@ -6,9 +6,9 @@ import { categories } from "../../data/categoriesData";
 const CategoryScrollSection = () => {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
-  const autoScrollSpeed = 1; 
+  const autoScrollSpeed = 1; // Adjust for faster/slower scroll
 
-  
+  // Triple the data to ensure the scroll track is always populated during the reset
   const loopedCategories = [...categories, ...categories, ...categories];
 
   useEffect(() => {
@@ -51,6 +51,10 @@ const CategoryScrollSection = () => {
     setTimeout(() => setIsPaused(false), 600);
   };
 
+  const handleCategoryClick = () => {
+    window.location.href = redirectUrl;
+  };
+
   return (
     <section className="pt-10 pb-7 bg-white overflow-hidden">
       <div className="max-w-325 mx-auto px-4 lg:px-5 relative">
@@ -79,7 +83,7 @@ const CategoryScrollSection = () => {
             onMouseLeave={() => setIsPaused(false)}
           >
             {loopedCategories.map((cat, index) => (
-              <div key={`${cat.id}-${index}`} className="shrink-0">
+              <div key={`${cat.id}-${index}`} className="flex-shrink-0">
                 <CategoryCard category={cat} />
               </div>
             ))}
