@@ -6,9 +6,9 @@ import { categories } from "../../data/categoriesData";
 const CategoryScrollSection = () => {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
-  const autoScrollSpeed = 1; // Adjust for faster/slower scroll
+  const autoScrollSpeed = 1; 
 
-  // Triple the data to ensure the scroll track is always populated during the reset
+  
   const loopedCategories = [...categories, ...categories, ...categories];
 
   useEffect(() => {
@@ -21,11 +21,10 @@ const CategoryScrollSection = () => {
       if (!isPaused && node) {
         node.scrollLeft += autoScrollSpeed;
 
-        // Calculate the width of one single set of items
+       
         const singleSetWidth = node.scrollWidth / 3;
 
-        // When we've scrolled past the second set, jump back by exactly one set width
-        // This creates a mathematically perfect, invisible loop
+       
         if (node.scrollLeft >= singleSetWidth * 2) {
           node.scrollLeft -= singleSetWidth;
         }
@@ -40,7 +39,7 @@ const CategoryScrollSection = () => {
   const scroll = (direction) => {
     if (!scrollRef.current) return;
 
-    // Pause auto-scroll to let the manual smooth scroll finish without conflict
+    
     setIsPaused(true);
 
     scrollRef.current.scrollBy({
@@ -48,13 +47,13 @@ const CategoryScrollSection = () => {
       behavior: "smooth",
     });
 
-    // Resume auto-scroll after 600ms (standard smooth scroll duration)
+    // Resume auto-scroll after 600ms
     setTimeout(() => setIsPaused(false), 600);
   };
 
   return (
     <section className="pt-10 pb-7 bg-white overflow-hidden">
-      <div className="max-w-[1300px] mx-auto px-4 lg:px-5 relative">
+      <div className="max-w-325 mx-auto px-4 lg:px-5 relative">
         <div className="relative flex items-center">
           {/* Left Arrow Button */}
           <button
@@ -69,7 +68,7 @@ const CategoryScrollSection = () => {
           <div
             ref={scrollRef}
             style={{
-              // Creates the fade effect on left and right sides
+              // Fade Effect
               maskImage:
                 "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
               WebkitMaskImage:
@@ -80,7 +79,7 @@ const CategoryScrollSection = () => {
             onMouseLeave={() => setIsPaused(false)}
           >
             {loopedCategories.map((cat, index) => (
-              <div key={`${cat.id}-${index}`} className="flex-shrink-0">
+              <div key={`${cat.id}-${index}`} className="shrink-0">
                 <CategoryCard category={cat} />
               </div>
             ))}

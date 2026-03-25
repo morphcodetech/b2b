@@ -3,12 +3,12 @@ import React from "react";
 const CategoryCard = ({ category, isActive, onClick }) => {
   return (
     <div
-      className="flex flex-col items-center gap-2 cursor-pointer group min-w-[132px] px-3 py-3"
+      className="flex flex-col items-center gap-2 cursor-pointer group min-w-33 px-3 py-3"
       onClick={() => onClick && onClick(category)}
     >
       {/* Circle with food image */}
       <div
-        className={`w-[108px] h-[108px] rounded-full flex items-center justify-center overflow-hidden transition-all duration-200
+        className={`w-27 h-27 rounded-full flex items-center justify-center overflow-hidden transition-all duration-200
           ${
             isActive
               ? "ring-2 ring-[#FA6C48] ring-offset-2"
@@ -19,7 +19,7 @@ const CategoryCard = ({ category, isActive, onClick }) => {
         <img
           src={category.image}
           alt={category.name}
-          className="w-[86px] h-[86px] object-contain drop-shadow-sm"
+          className="w-21.5 h-21.5 object-contain drop-shadow-sm"
           onError={(e) => {
             e.target.src = "https://via.placeholder.com/90";
           }}
