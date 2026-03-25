@@ -40,11 +40,11 @@ const CategoryGridSection = () => {
   return (
     <section className="pb-10 bg-white">
       <div className="max-w-[1300px] mx-auto px-4 lg:px-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           {promoCards.map((card) => (
             <article
               key={card.id}
-              className={`relative h-[240px] rounded-[16px] overflow-hidden ${card.bg}`}
+              className={`relative h-[250px] rounded-[16px] overflow-hidden ${card.bg}`}
             >
               <img
                 src={card.image}
@@ -52,7 +52,7 @@ const CategoryGridSection = () => {
                 className="absolute inset-0 h-full w-full object-cover"
               />
 
-              <div className="relative z-10 p-6 max-w-[170px]">
+              <div className="relative z-10 p-7 max-w-[190px]">
                 <h3 className="text-[22px] sm:text-[26px] leading-[1.15] font-bold text-[#1e2236] whitespace-pre-line">
                   {card.title}
                 </h3>
@@ -60,7 +60,7 @@ const CategoryGridSection = () => {
                   Starting at{" "}
                   <span className="text-[#eb4666] font-bold">{card.price}</span>
                 </p>
-                <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#1f9bb5] text-white text-[13px] font-semibold px-5 py-2.5 hover:bg-[#18859c] transition-colors duration-200">
+                <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#1f9bb5] text-white text-[13px] font-semibold px-5 py-2.5 hover:bg-[#18859c] transition-colors duration-200">
                   Shop Now <FaArrowRight size={11} />
                 </button>
               </div>
