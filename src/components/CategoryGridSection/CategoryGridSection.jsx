@@ -6,6 +6,8 @@ import card3 from "../../assets/categorycard/img3.png";
 import card4 from "../../assets/categorycard/img4.png";
 
 const CategoryGridSection = () => {
+  const redirectUrl = "https://angro-product.vercel.app/";
+
   const promoCards = [
     {
       id: 1,
@@ -60,7 +62,12 @@ const CategoryGridSection = () => {
                   Starting at{" "}
                   <span className="text-[#eb4666] font-bold">{card.price}</span>
                 </p>
-                <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#1f9bb5] text-white text-[13px] font-semibold px-5 py-2.5 hover:bg-[#18859c] transition-colors duration-200">
+                <button
+                  onClick={() => {
+                    window.location.href = redirectUrl;
+                  }}
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#1f9bb5] text-white text-[13px] font-semibold px-5 py-2.5 hover:bg-[#18859c] transition-colors duration-200"
+                >
                   Shop Now <FaArrowRight size={11} />
                 </button>
               </div>

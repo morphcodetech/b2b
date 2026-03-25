@@ -6,9 +6,9 @@ import { categories } from "../../data/categoriesData";
 const CategoryScrollSection = () => {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
-  const autoScrollSpeed = 1; 
+  const autoScrollSpeed = 1;
+  const redirectUrl = "https://angro-product.vercel.app/";
 
-  
   const loopedCategories = [...categories, ...categories, ...categories];
 
   useEffect(() => {
@@ -21,10 +21,8 @@ const CategoryScrollSection = () => {
       if (!isPaused && node) {
         node.scrollLeft += autoScrollSpeed;
 
-       
         const singleSetWidth = node.scrollWidth / 3;
 
-       
         if (node.scrollLeft >= singleSetWidth * 2) {
           node.scrollLeft -= singleSetWidth;
         }
@@ -39,7 +37,6 @@ const CategoryScrollSection = () => {
   const scroll = (direction) => {
     if (!scrollRef.current) return;
 
-    
     setIsPaused(true);
 
     scrollRef.current.scrollBy({
@@ -47,7 +44,7 @@ const CategoryScrollSection = () => {
       behavior: "smooth",
     });
 
-    
+    // Resume auto-scroll after 600ms
     setTimeout(() => setIsPaused(false), 600);
   };
 
@@ -68,11 +65,10 @@ const CategoryScrollSection = () => {
             <FaChevronLeft size={14} />
           </button>
 
-          
+          {/* Scrollable Track */}
           <div
             ref={scrollRef}
             style={{
-              // Fade Effect
               maskImage:
                 "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
               WebkitMaskImage:
@@ -84,7 +80,7 @@ const CategoryScrollSection = () => {
           >
             {loopedCategories.map((cat, index) => (
               <div key={`${cat.id}-${index}`} className="shrink-0">
-                <CategoryCard category={cat} />
+                <CategoryCard category={cat} onClick={handleCategoryClick} />
               </div>
             ))}
           </div>
