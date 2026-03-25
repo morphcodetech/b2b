@@ -6,9 +6,9 @@ import { categories } from "../../data/categoriesData";
 const CategoryScrollSection = () => {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
-  const autoScrollSpeed = 1; // Lower is smoother
+  const autoScrollSpeed = 1; // Adjust for faster/slower scroll
 
-  // Triple the data to ensure no "white gaps" during fast scrolls/resets
+  // Triple the data to ensure the scroll track is always populated during the reset
   const loopedCategories = [...categories, ...categories, ...categories];
 
   useEffect(() => {
@@ -18,11 +18,14 @@ const CategoryScrollSection = () => {
     let frameId;
 
     const tick = () => {
-      if (!isPaused) {
+      if (!isPaused && node) {
         node.scrollLeft += autoScrollSpeed;
 
-        
+        // Calculate the width of one single set of items
         const singleSetWidth = node.scrollWidth / 3;
+
+        // When we've scrolled past the second set, jump back by exactly one set width
+        // This creates a mathematically perfect, invisible loop
         if (node.scrollLeft >= singleSetWidth * 2) {
           node.scrollLeft -= singleSetWidth;
         }
@@ -32,53 +35,66 @@ const CategoryScrollSection = () => {
 
     frameId = window.requestAnimationFrame(tick);
     return () => window.cancelAnimationFrame(frameId);
-  }, [isPaused]);
+  }, [isPaused, autoScrollSpeed]);
 
   const scroll = (direction) => {
     if (!scrollRef.current) return;
 
-    
+    // Pause auto-scroll to let the manual smooth scroll finish without conflict
     setIsPaused(true);
 
     scrollRef.current.scrollBy({
-      left: direction === "left" ? -300 : 300,
+      left: direction === "left" ? -350 : 350,
       behavior: "smooth",
     });
 
-    // Resume auto-scroll after the smooth animation finishes
+    // Resume auto-scroll after 600ms (standard smooth scroll duration)
     setTimeout(() => setIsPaused(false), 600);
   };
 
   return (
     <section className="pt-10 pb-7 bg-white overflow-hidden">
-      <div className="max-w-[1300px] mx-auto px-4 relative">
-        {/* Navigation Buttons */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border shadow-md flex items-center justify-center hover:bg-[#FA6C48] hover:text-white transition-colors"
-        >
-          <FaChevronLeft size={14} />
-        </button>
+      <div className="max-w-[1300px] mx-auto px-4 lg:px-5 relative">
+        <div className="relative flex items-center">
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => scroll("left")}
+            aria-label="Scroll left"
+            className="absolute left-0 z-20 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center text-gray-500 hover:bg-[#FA6C48] hover:text-white hover:border-[#FA6C48] transition-all duration-200 -translate-x-2"
+          >
+            <FaChevronLeft size={14} />
+          </button>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-hidden whitespace-nowrap py-4"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {loopedCategories.map((cat, index) => (
-            <div key={`${cat.id}-${index}`} className="flex-shrink-0">
-              <CategoryCard category={cat} />
-            </div>
-          ))}
+          {/* Scrollable Track with Edge Opacity Mask */}
+          <div
+            ref={scrollRef}
+            style={{
+              // Creates the fade effect on left and right sides
+              maskImage:
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            }}
+            className="flex gap-4 overflow-x-hidden whitespace-nowrap py-4 mx-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {loopedCategories.map((cat, index) => (
+              <div key={`${cat.id}-${index}`} className="flex-shrink-0">
+                <CategoryCard category={cat} />
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => scroll("right")}
+            aria-label="Scroll right"
+            className="absolute right-0 z-20 w-10 h-10 rounded-full bg-[#1A9CB0] border border-[#1A9CB0] shadow-md flex items-center justify-center text-white hover:bg-[#FA6C48] hover:border-[#FA6C48] transition-all duration-200 translate-x-2"
+          >
+            <FaChevronRight size={14} />
+          </button>
         </div>
-
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#1A9CB0] text-white shadow-md flex items-center justify-center hover:bg-[#FA6C48] transition-colors"
-        >
-          <FaChevronRight size={14} />
-        </button>
       </div>
     </section>
   );
