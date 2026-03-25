@@ -16,16 +16,23 @@ const CategoryScrollSection = () => {
     if (!node) return;
 
     let frameId;
+    let lastTime = 0;
 
-    const tick = () => {
+    // Pixels per second (adjust this value for speed)
+    const pixelsPerSecond = 60;
+
+    const tick = (currentTime) => {
+      if (!lastTime) lastTime = currentTime;
+
+      // Calculate how much time passed since the last frame
+      const deltaTime = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
+
       if (!isPaused && node) {
-        node.scrollLeft += autoScrollSpeed;
+        // Move based on time, not refresh rate
+        node.scrollLeft += pixelsPerSecond * deltaTime;
 
-        // Calculate the width of one single set of items
         const singleSetWidth = node.scrollWidth / 3;
-
-        // When we've scrolled past the second set, jump back by exactly one set width
-        // This creates a mathematically perfect, invisible loop
         if (node.scrollLeft >= singleSetWidth * 2) {
           node.scrollLeft -= singleSetWidth;
         }
@@ -35,7 +42,7 @@ const CategoryScrollSection = () => {
 
     frameId = window.requestAnimationFrame(tick);
     return () => window.cancelAnimationFrame(frameId);
-  }, [isPaused, autoScrollSpeed]);
+  }, [isPaused]);
 
   const scroll = (direction) => {
     if (!scrollRef.current) return;
