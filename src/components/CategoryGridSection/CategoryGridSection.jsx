@@ -53,7 +53,7 @@ const CategoryGridSection = () => {
               />
 
               <div className="relative z-10 p-7 max-w-[170px]">
-                <h3 className="text-[34px] leading-[1.05] font-bold text-[#1e2236] whitespace-pre-line">
+                <h3 className="text-[22px] sm:text-[26px] leading-[1.15] font-bold text-[#1e2236] whitespace-pre-line">
                   {card.title}
                 </h3>
                 <p className="mt-3 text-[14px] text-[#555]">

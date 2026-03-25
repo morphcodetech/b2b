@@ -7,7 +7,7 @@ const CategoryScrollSection = () => {
   const scrollRef = useRef(null);
   const [activeId, setActiveId] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
-  const autoScrollSpeed = 1.2;
+  const autoScrollSpeed = 0.85;
   const loopedCategories = [...categories, ...categories];
 
   useEffect(() => {
