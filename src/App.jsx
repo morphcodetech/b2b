@@ -4,8 +4,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CartPage from "./pages/Cart"; 
+import ChatPage from "./pages/chat"; 
 import MainLayout from "./layouts/MainLayout";
 import SimpleLayout from "./layouts/SimpleLayout";
+// Ensure the filename matches (chat.jsx)
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         {/* ADD /cart HERE */}
         <Route path="/cart" element={<CartPage />} />
+         <Route path="/chat" element={<ChatPage />} />
       </Route>
     </Routes>
   );

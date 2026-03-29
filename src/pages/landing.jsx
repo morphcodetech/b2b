@@ -7,6 +7,7 @@ const Landing = () => {
     { label: "Go to Home", path: "/home", color: "bg-blue-600" },
     { label: "Go to Contact", path: "/contact", color: "bg-purple-600" },
     { label: "Go to Cart", path: "/cart", color: "bg-green-600" },
+    { label: "Go to Chat", path: "/chat", color: "bg-blue-600" },
   ];
 
   return (
